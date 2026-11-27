@@ -1,0 +1,653 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Portfolio of Abdul Arafat M. Mamayandug">
+<title>Abdul Arafat M. Mamayandug | Portfolio</title>
+
+<style>
+:root {
+  --gold: #d6ad55;
+  --gold-light: #f1d995;
+  --navy: #10233f;
+  --navy-deep: #091426;
+  --black: #090b10;
+  --white: #f8f7f3;
+  --panel: #142943;
+  --line: rgba(214,173,85,.28);
+}
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--white);
+  background: var(--black);
+  line-height: 1.7;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 8%;
+  background: rgba(9,20,38,.97);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+nav a {
+  color: #e7eaf0;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--gold-light);
+}
+
+.hero {
+  min-height: 540px;
+  padding: 90px 8%;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 80% 20%, #263e60 0, transparent 36%),
+    linear-gradient(125deg, var(--black), var(--navy) 68%, #182c48);
+}
+
+.hero-inner {
+  max-width: 790px;
+}
+
+.eyebrow {
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+  margin: 0 0 12px;
+}
+
+h1 {
+  font-size: clamp(38px, 7vw, 66px);
+  line-height: 1.12;
+  margin: 0 0 18px;
+}
+
+h1 span {
+  color: var(--gold-light);
+}
+
+.hero p:not(.eyebrow) {
+  max-width: 650px;
+  color: #d6dce6;
+  font-size: 17px;
+  margin: 0 0 28px;
+}
+
+.button {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy-deep);
+  padding: 12px 22px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 800;
+}
+
+.button:hover {
+  background: var(--gold-light);
+}
+
+section.content {
+  padding: 76px 8%;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: auto;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 1.2;
+  margin: 0 0 18px;
+  color: var(--gold-light);
+}
+
+/* ABOUT */
+
+.about {
+  background: #0d1727;
+}
+
+.about-copy {
+  color: #d8deea;
+  max-width: 900px;
+}
+
+.details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+  gap: 13px;
+  margin-top: 25px;
+}
+
+.detail {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 13px 16px;
+  overflow-wrap: anywhere;
+}
+
+.detail strong {
+  display: block;
+  color: var(--gold);
+  font-size: 13px;
+}
+
+/* SKILLS */
+
+.skills {
+  background: var(--white);
+  color: var(--navy-deep);
+}
+
+.skills h2,
+.projects h2 {
+  color: var(--navy);
+}
+
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 20px;
+}
+
+.skill-card {
+  background: white;
+  border: 1px solid #e2e4e8;
+  border-left: 4px solid var(--gold);
+  border-radius: 8px;
+  padding: 23px;
+  box-shadow: 0 8px 24px rgba(10,20,35,.05);
+}
+
+.skill-card h3 {
+  color: var(--navy);
+  margin: 0 0 10px;
+}
+
+.skill-card ul {
+  margin: 0;
+  padding-left: 20px;
+  color: #4e5a6a;
+}
+
+/* PROJECTS */
+
+.projects {
+  background: #edf0f4;
+  color: var(--navy-deep);
+}
+
+.project-intro {
+  color: #526071;
+  max-width: 760px;
+  margin: 0 0 28px;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.project {
+  background: white;
+  border: 1px solid #dfe3e9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(10,20,35,.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-head {
+  padding: 23px;
+  color: white;
+  background: linear-gradient(120deg,var(--navy-deep),var(--navy));
+  border-bottom: 4px solid var(--gold);
+}
+
+.project-head .number {
+  color: var(--gold-light);
+  font-size: 12px;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+.project-head h3 {
+  margin: 7px 0 0;
+  font-size: 22px;
+  line-height: 1.4;
+}
+
+.project-body {
+  padding: 24px;
+  flex: 1;
+}
+
+.project-body p {
+  color: #526071;
+  font-size: 14px;
+}
+
+.project-body strong {
+  color: var(--navy);
+}
+
+.project-label {
+  display: inline-block;
+  background: #f6edda;
+  color: #74531a;
+  padding: 5px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.project-list {
+  color: #526071;
+  font-size: 14px;
+  padding-left: 20px;
+}
+
+.project-list li {
+  margin-bottom: 7px;
+}
+
+.project-footer {
+  padding: 13px 24px;
+  background: #f5f6f8;
+  color: var(--navy);
+  font-size: 12px;
+  font-weight: bold;
+  border-top: 1px solid #e3e5e9;
+}
+
+/* CONTACT */
+
+.contact {
+  text-align: center;
+  background: var(--navy-deep);
+}
+
+.contact p:not(.eyebrow) {
+  color: #d5dce6;
+}
+
+.email {
+  color: var(--gold-light);
+  font-size: 18px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+}
+
+.email:hover {
+  color: var(--gold);
+}
+
+footer {
+  text-align: center;
+  background: #050a12;
+  color: #aeb7c4;
+  padding: 22px;
+  font-size: 13px;
+  border-top: 1px solid var(--line);
+}
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 680px) {
+  header {
+    justify-content: center;
+    flex-direction: column;
+    padding: 14px 5%;
+  }
+
+  nav {
+    justify-content: center;
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 450px;
+    padding: 70px 6%;
+  }
+
+  section.content {
+    padding: 58px 6%;
+  }
+
+  .skill-grid,
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  h2 {
+    font-size: 27px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a class="brand" href="#home">AAM.</a>
+
+  <nav aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <p class="eyebrow">
+      BACHELOR OF SCIENCE IN COMPUTER SCIENCE
+    </p>
+
+    <h1>
+      Hello, I'm<br>
+      <span>Abdul Arafat M. Mamayandug</span>
+    </h1>
+
+    <p>
+      A Computer Science student interested in web development,
+      database systems, and building practical digital solutions.
+      Welcome to my personal portfolio.
+    </p>
+
+    <a class="button" href="#projects">View My Projects</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="content about" id="about">
+  <div class="wrap">
+    <p class="eyebrow">INTRODUCTION</p>
+    <h2>About Me</h2>
+
+    <p class="about-copy">
+      Hello! I am Abdul Arafat M. Mamayandug, a Bachelor of Science
+      in Computer Science student. I am interested in learning how
+      websites and database systems work together to create useful
+      applications. Through academic and group projects, I continue
+      to develop my skills in programming, web design, database
+      organization, collaboration, and problem-solving.
+    </p>
+
+    <div class="details">
+      <div class="detail">
+        <strong>Name</strong>
+        Abdul Arafat M. Mamayandug
+      </div>
+
+      <div class="detail">
+        <strong>Course / Program</strong>
+        Bachelor of Science in Computer Science
+      </div>
+
+      <div class="detail">
+        <strong>Email</strong>
+        ammamayandug@ccc.edu.ph
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+
+<section class="content skills" id="skills">
+  <div class="wrap">
+    <p class="eyebrow">MY CAPABILITIES</p>
+    <h2>Skills</h2>
+
+    <div class="skill-grid">
+
+      <article class="skill-card">
+        <h3>Technical Skills</h3>
+        <ul>
+          <li>HTML and CSS</li>
+          <li>JavaScript fundamentals</li>
+          <li>Database Management System concepts</li>
+          <li>Relational database design</li>
+          <li>Website development</li>
+        </ul>
+      </article>
+
+      <article class="skill-card">
+        <h3>Design & Collaboration</h3>
+        <ul>
+          <li>Web page layout and interface design</li>
+          <li>Visual organization and color selection</li>
+          <li>Teamwork and collaboration</li>
+          <li>Problem-solving and critical thinking</li>
+          <li>Willingness to learn new technologies</li>
+        </ul>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS: EXACTLY TWO -->
+
+<section class="content projects" id="projects">
+  <div class="wrap">
+
+    <p class="eyebrow">MY ACADEMIC WORK</p>
+    <h2>My Projects</h2>
+
+    <p class="project-intro">
+      These are two separate academic project entries developed
+      with my groupmates. Each project focuses on a different
+      area of computer science: database management and web design.
+    </p>
+
+    <div class="project-grid">
+
+      <!-- PROJECT 01: DBMS -->
+
+      <article class="project">
+
+        <div class="project-head">
+          <span class="number">PROJECT 01</span>
+          <h3>4Seasons Resort Database Management System</h3>
+        </div>
+
+        <div class="project-body">
+
+          <span class="project-label">
+            DATABASE MANAGEMENT SYSTEM
+          </span>
+
+          <p>
+            This academic group project focuses on the database
+            design and management of the 4Seasons Resort Reservation
+            System. Its purpose is to organize and store important
+            information needed for resort operations and customer
+            reservations.
+          </p>
+
+          <p>
+            We designed a relational database structure that
+            connects different records through primary keys
+            and foreign keys. This helps organize information
+            and maintain relationships between database tables.
+          </p>
+
+          <strong>Project Features and Concepts:</strong>
+
+          <ul class="project-list">
+            <li>Database and table creation</li>
+            <li>Customer account information</li>
+            <li>Room and reservation records</li>
+            <li>Administrator information</li>
+            <li>Primary keys and foreign keys</li>
+            <li>Entity Relationship Diagram (ERD)</li>
+            <li>Relational database relationships</li>
+          </ul>
+
+          <p>
+            <strong>My Learning Experience:</strong>
+            This project helped me understand database organization,
+            data relationships, database structure, and how
+            information is stored and managed in a system.
+          </p>
+
+        </div>
+
+        <div class="project-footer">
+          PROJECT 01 — DATABASE DESIGN & MANAGEMENT
+        </div>
+
+      </article>
+
+      <!-- PROJECT 02: WEB DESIGN -->
+
+      <article class="project">
+
+        <div class="project-head">
+          <span class="number">PROJECT 02</span>
+          <h3>4Seasons Resort Website Design and Development</h3>
+        </div>
+
+        <div class="project-body">
+
+          <span class="project-label">
+            WEB DESIGN & DEVELOPMENT
+          </span>
+
+          <p>
+            This academic group project focuses on designing and
+            developing the 4Seasons Resort website. The website
+            provides a digital platform where customers can explore
+            the resort, access their accounts, and manage their
+            reservation-related information.
+          </p>
+
+          <p>
+            We created a user-friendly interface with a resort-themed
+            design, organized navigation, and customer portal.
+            The website includes login and registration pages
+            and a customer dashboard.
+          </p>
+
+          <strong>Website Features:</strong>
+
+          <ul class="project-list">
+            <li>Homepage and navigation menu</li>
+            <li>Login and registration interface</li>
+            <li>Customer dashboard</li>
+            <li>Reservation information display</li>
+            <li>Resort rooms and services section</li>
+            <li>Customer account interface</li>
+            <li>Responsive website layout</li>
+          </ul>
+
+          <p>
+            <strong>My Learning Experience:</strong>
+            This project helped me improve my understanding
+            of website layout, user interface design, front-end
+            development, and creating accessible and organized
+            web pages.
+          </p>
+
+        </div>
+
+        <div class="project-footer">
+          PROJECT 02 — WEB DESIGN & DEVELOPMENT
+        </div>
+
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+
+<section class="content contact" id="contact">
+  <div class="wrap">
+
+    <p class="eyebrow">LET'S CONNECT</p>
+    <h2>Contact Me</h2>
+
+    <p>
+      Thank you for visiting my portfolio!
+      Feel free to contact me through my email.
+    </p>
+
+    <a class="email"
+       href="mailto:ammamayandug@ccc.edu.ph">
+      ammamayandug@ccc.edu.ph
+    </a>
+
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <p>
+    © 2026 Abdul Arafat M. Mamayandug.
+    All Rights Reserved.
+  </p>
+
+</body>
+</html>
+
